@@ -1,0 +1,28 @@
+$info demo() {
+    return (
+        @name '示例'
+        @version '1.0.0'
+        @desc '这是一个 kby 语法示例'
+    )
+}
+
+$get /api/items/{id} (@path('id') id, @query('page') page, @body('json'), obj @method method) {
+    let a = "123"
+    let map = {"a": a}
+    let c = 1 + 2
+    let d = 2 - 1
+    let e = 2 * 3
+    let f = 6 / 2
+    let g = 2.52
+    return (
+        @body('json') map
+        @header('xxx') a
+        @code 200
+    )
+}
+
+$get /hello_world () {
+    return (
+        @body('text') "hello world"
+    )
+}
